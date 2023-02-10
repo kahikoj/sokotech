@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormControl, Select, MenuItem } from '@material-ui/core';
+import { FormControl, Select, MenuItem } from '@mui/material';
 import ProductList from './ProductsList';
 
 const Products = ({ products }) => {

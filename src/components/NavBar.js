@@ -1,32 +1,44 @@
 import React from "react";
-import {  ThemeProvider , makeStyles } from '@mui/styles';
-import { createTheme } from '@material-ui/core/styles';
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchBar from "./SearchBar";
+import { createStyles, makeStyles } from '@mui/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+// import SearchBar from "./SearchBar";
 
-const useStyles = makeStyles(theme => ({
+
+const useStyles = makeStyles({
   root: {
-    flexGrow: 1
+    borderRadius: 12,
+    backgroundColor: "blue"
   },
-  menuButton: {
-    marginRight: theme.spacing.unit * 2
-  },
-  title: {
-    flexGrow: 1
-  },
-  search: {
-    marginRight: theme.spacing(2)
-  }
-}));
+  //    search: {
+  //      borderRadius: 5,
+  //   }
+});
+
+// const useStyles = makeStyles(theme => 
+//   createStyles({
+//   root: {
+//     flexGrow: 1
+//   },
+//   menuButton: {
+//     marginRight: theme.spacing(1, 'auto'),
+//   },
+//   title: {
+//     flexGrow: 1
+//   },
+//   search: {
+//     marginRight: theme.spacing(1, 'auto'),
+//   }
+// }));
 
 const NavBar = ({ products }) => {
   const classes = useStyles();
-  const theme = createTheme();
+  const theme = createTheme({ spacing: 8 });
 
   return (
     <ThemeProvider theme={theme}>
@@ -42,16 +54,16 @@ const NavBar = ({ products }) => {
                       <MenuIcon />
                       </IconButton>
             <Typography variant="h6" className={classes.title}>
-                My Website
+               
             </Typography>
             <Button color="inherit">Home</Button>
             <Button color="inherit">Products</Button>
             <Button color="inherit">Services</Button>
             <Button color="inherit">Contact</Button>
                 <Button color="inherit">About</Button>
-            <div className={classes.search}>
+            {/* <div className={classes.search}>
               <SearchBar products={products} />
-            </div>
+            </div> */}
           </Toolbar>
         </AppBar>
       </div>

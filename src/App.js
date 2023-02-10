@@ -9,21 +9,21 @@ import Contacts from './components/Contacts';
 import About from './components/About';
 import Footer from './components/Footer';
 
-const App = () => {
+function App() {
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<HomePage/>} />
-        <Route path="/products" element={Products} />
-        <Route path="/services" element={Services} />
-        <Route path="/contacts" element={Contacts} />
-        <Route path="/about" element={About} />
+        <Route exact path="/" element={<HomePage />} />
+        <Route path="/products" element={<Products/>} />
+        <Route path="/services" element={<Services/>} />
+        <Route path="/contacts" element={<Contacts/>} />
+        <Route path="/about" element={<About/>} />
       </Routes>
       <Footer />
     </Router>
-    
+
   );
-};
+}
 
 export default App;

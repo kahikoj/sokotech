@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import HomeIcon from '@material-ui/icons/Home';
-import ContactMailIcon from '@material-ui/icons/ContactMail';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import HomeIcon from '@mui/icons-material/Home';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
