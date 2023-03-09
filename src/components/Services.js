@@ -4,7 +4,8 @@ const Services = ({ services }) => {
   return (
     <div>
       <h1>Services</h1>
-      {services.map(service => (
+      <p>We sell computers</p>
+      {services && services.map(service => (
         <div key={service.id}>
           <h2>{service.name}</h2>
           <p>{service.description}</p>
@@ -15,3 +16,4 @@ const Services = ({ services }) => {
 };
 
 export default Services;
+

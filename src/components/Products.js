@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { FormControl, Select, MenuItem } from '@mui/material';
-import ProductList from './ProductsList';
-
-const Products = ({ products }) => {
-  const [category, setCategory] = useState('');
-  const filteredProducts = products.filter(product => product.category === category);
-
-  return (
-    <div>
-      <h1>Products</h1>
-      <FormControl>
-        <Select value={category} onChange={e => setCategory(e.target.value)}>
-          <MenuItem value="">All</MenuItem>
-          <MenuItem value="category1">Category 1</MenuItem>
-          <MenuItem value="category2">Category 2</MenuItem>
-          <MenuItem value="category3">Category 3</MenuItem>
-        </Select>
-      </FormControl>
-      <ProductList products={filteredProducts} />
-    </div>
-  );
-};
+const Products = [
+  {
+    id: 1,
+    name: "Laptop",
+    image: "https://stocksnap.io/photo/matte-laptop-PSVLQHIH6O",
+    price: "$999",
+    category: "electronics"
+  },
+  {
+    id: 2,
+    name: "Headphones",
+    image: "https://stocksnap.io/photo/laptop-mockup-64K0XUMOXY",
+    price: "$99",
+    category: "electronics"
+  },
+  {
+    id: 3,
+    name: "Backpack",
+    image: "https://stocksnap.io/photo/photography-gear-Z5IW9QEFL6",
+    price: "$49",
+    category: "accessories"
+  }
+];
 
 export default Products;

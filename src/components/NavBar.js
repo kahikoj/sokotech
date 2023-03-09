@@ -1,6 +1,7 @@
 import React from "react";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link, NavLink } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -56,11 +57,23 @@ const NavBar = ({ products }) => {
             <Typography variant="h6" className={classes.title}>
                
             </Typography>
-            <Button color="inherit">Home</Button>
-            <Button color="inherit">Products</Button>
-            <Button color="inherit">Services</Button>
-            <Button color="inherit">Contact</Button>
-                <Button color="inherit">About</Button>
+
+            <NavLink to="/" exact="true" activeclassname="active-link">
+              <Button color="inherit">Home</Button>
+            </NavLink>
+            <NavLink to="/inventory" activeclassname="active-link">
+              <Button color="inherit">Products</Button>
+            </NavLink>
+            <NavLink to="/services" activeclassname="active-link">
+              <Button color="inherit">Services</Button>
+            </NavLink>
+            <NavLink to="/Contacts" activeclassname="active-link">
+              <Button color="inherit">Contact</Button>
+            </NavLink>
+            <NavLink to="/about" activeclassname="active-link">
+              <Button color="inherit">About</Button>
+            </NavLink>
+
             {/* <div className={classes.search}>
               <SearchBar products={products} />
             </div> */}
