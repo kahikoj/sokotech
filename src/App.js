@@ -1,29 +1,58 @@
 import './App.css';
-import React from 'react';
+import React, { Suspense }  from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import HomePage from './components/HomePage';
-import Inventory from './components/Inventory';
-import Services from './components/Services';
-import Contacts from './components/Contacts';
-import About from './components/About';
-import Footer from './components/Footer';
+import Layout from './components/Layout';
+
+// Import Css
+import './apps.scss';
+import './Assets/css/materialdesignicons.min.css';
+import './Assets/css/colors/default.css';
+
+
+
+// Include Routes 
+import routes from './routes.js';
+
+function WithLayout(WrappedComponent) {
+  return class extends React.Component {  
+    render() {
+      return <Layout>
+        <WrappedComponent></WrappedComponent>
+      </Layout>
+    }
+  };
+}
 
 function App() {
-  return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/inventory" element={<Inventory/>} />
-        <Route path="/services" element={<Services/>} />
-        <Route path="/contacts" element={<Contacts/>} />
-        <Route path="/about" element={<About/>} />
-      </Routes>
-      <Footer />
-    </Router>
+  const Loader = () => {
+    return (
+      <div id="preloader">
+          <div id="status">
+              <div className="spinner">
+                  <div className="double-bounce1"></div>
+                  <div className="double-bounce2"></div>
+              </div>
+          </div>
+      </div>
+    );
+  }
 
+  return (
+    <Router>  
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          {routes.map((route, idx) =>
+            route.isWithoutLayout ? (
+              <Route exact path="/" element={< route.HomePage />} key={idx} />
+            ) : (
+              <Route path={route.path} exact element={<route.element />} key={idx} />
+            )
+          )}
+        </Routes>
+      </Suspense>
+    </Router>
   );
 }
+
 
 export default App;

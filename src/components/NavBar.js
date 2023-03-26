@@ -1,88 +1,69 @@
-import React from "react";
-import { createStyles, makeStyles } from '@mui/styles';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link, NavLink } from "react-router-dom";
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-// import SearchBar from "./SearchBar";
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import { Container } from "reactstrap";
+import ScrollspyNav from "./ScrollspyNav";
+import logodark from "../Assets/images/logo-dark.png";
 
+const NavbarPage = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
-const useStyles = makeStyles({
-  root: {
-    borderRadius: 12,
-    backgroundColor: "blue"
-  },
-  //    search: {
-  //      borderRadius: 5,
-  //   }
-});
+    const toggleLine = () => {
+        setIsOpen(prevState => !prevState.isOpen);
+    }
 
-// const useStyles = makeStyles(theme => 
-//   createStyles({
-//   root: {
-//     flexGrow: 1
-//   },
-//   menuButton: {
-//     marginRight: theme.spacing(1, 'auto'),
-//   },
-//   title: {
-//     flexGrow: 1
-//   },
-//   search: {
-//     marginRight: theme.spacing(1, 'auto'),
-//   }
-// }));
+    const navItems = [
+        { id: 1, idnm: "home", navheading: "Home" },
+        { id: 3, idnm: "service", navheading: "Feature" },
+        { id: 3, idnm: "testimonial", navheading: "Review" },
+        { id: 4, idnm: "pricing", navheading: "Price" },
+        { id: 6, idnm: "contact", navheading: "Contact" },
+    ];
 
-const NavBar = ({ products }) => {
-  const classes = useStyles();
-  const theme = createTheme({ spacing: 8 });
+    const targetId = navItems.map((item) => item.idnm);
 
-  return (
-    <ThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-                      edge="start"
-                      className={classes.menuButton}
-                      color="inherit"
-                      aria-label="menu"
+    return (
+        <>
+            <header id="topnav" className="defaultscroll sticky">
+                <Container>
+                    <div>
+                        <Link className="logo" to="#">
+                            <img src={logodark} height="24" alt="" />
+                        </Link>
+                    </div>
+                    <div className="sokomart">
+                        <Link to="https://sky.garden/shop/sokomart%0A%20%20%20%20%20%20?utm_source=merchant_app&utm_campaign=web_shop_link_share&utm_content=Sokomart" target="_blank" className="btn btn-primary">Sokomart</Link>
+                    </div>
+                    <div className="menu-extras">
+                        <div className="menu-item">
+                            <Link to="#" onClick={toggleLine} className={isOpen ? "navbar-toggle open" : "navbar-toggle"}>
+                                <div className="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                    <ScrollspyNav
+                        scrollTargetIds={targetId}
+                        scrollDuration="800"
+                        headerBackground="false"
+                        activeNavClass="active"
                     >
-                      <MenuIcon />
-                      </IconButton>
-            <Typography variant="h6" className={classes.title}>
-               
-            </Typography>
-
-            <NavLink to="/" exact="true" activeclassname="active-link">
-              <Button color="inherit">Home</Button>
-            </NavLink>
-            <NavLink to="/inventory" activeclassname="active-link">
-              <Button color="inherit">Products</Button>
-            </NavLink>
-            <NavLink to="/services" activeclassname="active-link">
-              <Button color="inherit">Services</Button>
-            </NavLink>
-            <NavLink to="/Contacts" activeclassname="active-link">
-              <Button color="inherit">Contact</Button>
-            </NavLink>
-            <NavLink to="/about" activeclassname="active-link">
-              <Button color="inherit">About</Button>
-            </NavLink>
-
-            {/* <div className={classes.search}>
-              <SearchBar products={products} />
-            </div> */}
-          </Toolbar>
-        </AppBar>
-      </div>
-    </ThemeProvider>
-    
-  );
+                        <div id="navigation" style={{ display: isOpen ? "block" : "none" }}>
+                            <ul className="navigation-menu">
+                                {navItems.map((item, key) => (
+                                    <li key={key} className={item.navheading === "Home" ? "has-submenu active" : "has-submenu"}>
+                                        <a href={"#" + item.idnm}> {item.navheading}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </ScrollspyNav>
+                </Container>
+            </header>
+        </>
+    );
 };
 
-export default NavBar;
+export default NavbarPage;
