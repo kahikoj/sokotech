@@ -3,6 +3,9 @@ import React, { Suspense }  from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
+import Topbar from './components/TopBar';
+import NavbarPage from './components/NavBar'
+
 // Import Css
 import './apps.scss';
 import './Assets/css/materialdesignicons.min.css';
@@ -10,18 +13,19 @@ import './Assets/css/colors/default.css';
 
 
 
+
 // Include Routes 
 import routes from './routes.js';
 
-function WithLayout(WrappedComponent) {
-  return class extends React.Component {  
-    render() {
-      return <Layout>
-        <WrappedComponent></WrappedComponent>
-      </Layout>
-    }
-  };
-}
+// function WithLayout(WrappedComponent) {
+//       return <Layout>
+//         {/* <WrappedComponent></WrappedComponent> */}
+//       </Layout>
+//   };
+//   };
+// }
+// };
+// }
 
 function App() {
   const Loader = () => {
@@ -38,18 +42,19 @@ function App() {
   }
 
   return (
+    
     <Router>  
-      <Suspense fallback={<Loader />}>
+      <Layout>
         <Routes>
           {routes.map((route, idx) =>
             route.isWithoutLayout ? (
-              <Route exact path="/" element={< route.HomePage />} key={idx} />
+              <Route exact path="/" element={< route.element />} key={idx} />
             ) : (
               <Route path={route.path} exact element={<route.element />} key={idx} />
             )
           )}
         </Routes>
-      </Suspense>
+      </Layout>
     </Router>
   );
 }

@@ -13,11 +13,11 @@ const routes = [
     // { path: '/shop-myaccount', component: ShopMyAccount },
     
     //Index Main
-    { path: '/homepage', element: <HomePage/> },
+    { path: '/homepage', element: HomePage },
 
     //Index root
     
-    { path: '/', element: <HomePage/>, exact : true },
+    { path: '/', element: HomePage, exact : true },
     // { component: PageError, isWithoutLayout : true, exact : false },
     
 ];

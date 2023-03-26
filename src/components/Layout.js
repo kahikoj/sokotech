@@ -33,18 +33,13 @@ function Loader() {
 }
 
 function Layout({ children }) {
-  const navigate = useNavigate();
 
   return (
     <>
       <Suspense fallback={<Loader />}>
-        {navigate("/index-onepage") ? (
-          <NavbarPage />
-        ) : (
-          <Topbar />
-        )}
+        <NavbarPage />
         {children}
-        <Footer />
+        <Footer isLight={true}/>
         <ScrollUpButton ContainerClassName="classForContainer" style={{ height: 36, width: 36 }} TransitionClassName="classForTransition">
           <CustomDot />
         </ScrollUpButton>

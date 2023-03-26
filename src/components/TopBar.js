@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useNavigation} from 'react-router-dom';
 import { Container } from 'reactstrap';
-import { useLocation } from "react-router-dom";
 
 const Topbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,22 +43,23 @@ const Topbar = () => {
       link: '/page-aboutus'
     }
   ]);
-  const { location } = useLocation();
+  // const location = useNavigation();
+  // console.log(location)
 
   const toggleLine = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const ul = document.getElementById('top-menu');
-    const items = ul.getElementsByTagName('a');
-    for (let i = 0; i < items.length; i++) {
-      if (location.pathname === items[i].pathname) {
-        activateParentDropdown(items[i]);
-        break;
-      }
-    }
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   const ul = document.getElementById('top-menu');
+  //   const items = ul.getElementsByTagName('a');
+  //   for (let i = 0; i < items.length; i++) {
+  //     if (location.pathname === items[i].pathname) {
+  //       activateParentDropdown(items[i]);
+  //       break;
+  //     }
+  //   }
+  // }, [location.pathname]);
 
   const activateParentDropdown = (item) => {
     const parent = item.parentElement;

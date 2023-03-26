@@ -107,15 +107,15 @@ const Footer = ({ isLight }) => {
               </ul>
             </Col>
             <Col lg="3" md="4" xs="12" className="mt-4 mt-sm-0 pt-2 pt-sm-0" name="footercolumn">
-                        <h4 className={this.props.isLight ? "text-dark footer-head" : "text-light footer-head"}>Newsletter</h4>
+                        <h4 className={isLight ? "text-dark footer-head" : "text-light footer-head"}>Newsletter</h4>
                         <p className="mt-4">Sign up and receive the latest tips via email.</p>
                         <Form>
                             <Row>
                                 <Col lg="12">
-                                    <div className={this.props.isLight ? "foot-subscribe foot-white form-group position-relative" : "foot-subscribe form-group position-relative"}>
-                                        <Label className={this.props.isLight ? "text-muted" : ""}>Write your email <span className="text-danger">*</span></Label>
+                                    <div className={isLight ? "foot-subscribe foot-white form-group position-relative" : "foot-subscribe form-group position-relative"}>
+                                        <Label className={isLight ? "text-muted" : ""}>Write your email <span className="text-danger">*</span></Label>
                                         <i><FeatherIcon icon="mail" className="fea icon-sm icons" /></i>
-                                        <Input type="email" name="email" id="emailsubscribe" className={this.props.isLight ? "form-control bg-light border pl-5 rounded" : "form-control pl-5 rounded"} placeholder="Your email : " required/>
+                                        <Input type="email" name="email" id="emailsubscribe" className={isLight ? "form-control bg-light border pl-5 rounded" : "form-control pl-5 rounded"} placeholder="Your email : " required/>
                                     </div>
                                 </Col>
                                 <Col lg="12">
