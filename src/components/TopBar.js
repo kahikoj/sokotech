@@ -43,23 +43,23 @@ const Topbar = () => {
       link: '/page-aboutus'
     }
   ]);
-  // const location = useNavigation();
-  // console.log(location)
+  const location = useNavigation();
+  console.log(location)
 
   const toggleLine = () => {
     setIsOpen(!isOpen);
   };
 
-  // useEffect(() => {
-  //   const ul = document.getElementById('top-menu');
-  //   const items = ul.getElementsByTagName('a');
-  //   for (let i = 0; i < items.length; i++) {
-  //     if (location.pathname === items[i].pathname) {
-  //       activateParentDropdown(items[i]);
-  //       break;
-  //     }
-  //   }
-  // }, [location.pathname]);
+  useEffect(() => {
+    const ul = document.getElementById('top-menu');
+    const items = ul.getElementsByTagName('a');
+    for (let i = 0; i < items.length; i++) {
+      if (location.pathname === items[i].pathname) {
+        activateParentDropdown(items[i]);
+        break;
+      }
+    }
+  }, [location.pathname]);
 
   const activateParentDropdown = (item) => {
     const parent = item.parentElement;

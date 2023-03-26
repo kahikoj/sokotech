@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Container } from "reactstrap";
-import ScrollspyNav from "./ScrollspyNav";
+import ScrollspyNav from "./Scrollspy";
 import logodark from "../Assets/images/logo-dark.png";
 
 const NavbarPage = () => {
@@ -13,10 +13,10 @@ const NavbarPage = () => {
 
     const navItems = [
         { id: 1, idnm: "home", navheading: "Home" },
-        { id: 3, idnm: "service", navheading: "Feature" },
-        { id: 3, idnm: "testimonial", navheading: "Review" },
-        { id: 4, idnm: "pricing", navheading: "Price" },
-        { id: 6, idnm: "contact", navheading: "Contact" },
+        { id: 3, idnm: "products", navheading: "Products" },
+        { id: 3, idnm: "service", navheading: "Service" },
+        { id: 4, idnm: "contact", navheading: "Contact" },
+        { id: 6, idnm: "about", navheading: "About" },
     ];
 
     const targetId = navItems.map((item) => item.idnm);
@@ -26,12 +26,9 @@ const NavbarPage = () => {
             <header id="topnav" className="defaultscroll sticky">
                 <Container>
                     <div>
-                        <Link className="logo" to="#">
+                        <Link className="logo" to="/Homepage">
                             <img src={logodark} height="24" alt="" />
                         </Link>
-                    </div>
-                    <div className="sokomart">
-                        <Link to="https://sky.garden/shop/sokomart%0A%20%20%20%20%20%20?utm_source=merchant_app&utm_campaign=web_shop_link_share&utm_content=Sokomart" target="_blank" className="btn btn-primary">Sokomart</Link>
                     </div>
                     <div className="menu-extras">
                         <div className="menu-item">

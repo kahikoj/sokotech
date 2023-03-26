@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import { useNavigate } from "react-router-dom";
 
 // Scroll up button
 import ScrollUpButton from "react-scroll-up-button";
@@ -8,7 +7,7 @@ import ScrollUpButton from "react-scroll-up-button";
 import FeatherIcon from 'feather-icons-react';
 
 // Layout Components
-const Topbar = React.lazy(() => import('./TopBar'));
+// const Topbar = React.lazy(() => import('./TopBar'));
 const NavbarPage = React.lazy(() => import('./NavBar'));
 const Footer = React.lazy(() => import('./Footer'));
 const FooterWithoutMenuLightSocialOnly = React.lazy(() => import('./FooterWithoutMenuLight'));
@@ -38,12 +37,14 @@ function Layout({ children }) {
     <>
       <Suspense fallback={<Loader />}>
         <NavbarPage />
+        
+        {/* <Topbar/> */}
         {children}
         <Footer isLight={true}/>
         <ScrollUpButton ContainerClassName="classForContainer" style={{ height: 36, width: 36 }} TransitionClassName="classForTransition">
           <CustomDot />
         </ScrollUpButton>
-      </Suspense>
+      </Suspense> 
     </>
   );
 }
