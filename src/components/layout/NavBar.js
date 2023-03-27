@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Container } from "reactstrap";
-import ScrollspyNav from "./Scrollspy";
-import logodark from "../Assets/images/logo-dark.png";
+import ScrollspyNav from "../Shared/Scrollspy";
+import logodark from "../../Assets/images/logo-dark.png";
 
 const NavbarPage = () => {
     const [isOpen, setIsOpen] = useState(false);

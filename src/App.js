@@ -1,10 +1,10 @@
 import './App.css';
 import React, { Suspense }  from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
+import Layout from './components/layout/Layout';
 
-import Topbar from './components/TopBar';
-import NavbarPage from './components/NavBar'
+// import Topbar from './components/TopBar';
+// import NavbarPage from './components/NavBar'
 
 // Import Css
 import './apps.scss';

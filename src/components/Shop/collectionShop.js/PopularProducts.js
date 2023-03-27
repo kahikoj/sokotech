@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 
 // Import Images
-import product9 from '../Assets/images/shop/product/s9.jpg';
-import product10 from '../Assets/images/shop/product/s10.jpg';
-import product11 from '../Assets/images/shop/product/s11.jpg';
-import product12 from '../Assets/images/shop/product/s12.jpg';
-import prodtctOverlay9 from '../Assets/images/shop/product/s-9.jpg';
-import prodtctOverlay10 from '../Assets/images/shop/product/s-10.jpg';
-import prodtctOverlay11 from '../Assets/images/shop/product/s-11.jpg';
-import prodtctOverlay12 from '../Assets/images/shop/product/s-12.jpg';
+import product9 from '../../../Assets/images/shop/product/s9.jpg';
+import product10 from '../../../Assets/images/shop/product/s10.jpg';
+import product11 from '../../../Assets/images/shop/product/s11.jpg';
+import product12 from '../../../Assets/images/shop/product/s12.jpg';
+import prodtctOverlay9 from '../../../Assets/images/shop/product/s-9.jpg';
+import prodtctOverlay10 from '../../../Assets/images/shop/product/s-10.jpg';
+import prodtctOverlay11 from '../../../Assets/images/shop/product/s-11.jpg';
+import prodtctOverlay12 from '../../../Assets/images/shop/product/s-12.jpg';
 
 const PopularProducts = () => {
   const [products] = useState([

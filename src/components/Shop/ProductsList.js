@@ -9,37 +9,37 @@ import FeatherIcon from 'feather-icons-react';
 import PageBreadcrumb from "../pageBreadcrumb";
 
 //Import Images
-import product1 from "../Assets/images/shop/product/s1.jpg";
-import product2 from "../Assets/images/shop/product/s2.jpg";
-import product3 from "../Assets/images/shop/product/s3.jpg";
-import product4 from "../Assets/images/shop/product/s4.jpg";
-import product5 from "../Assets/images/shop/product/s5.jpg";
-import product6 from "../Assets/images/shop/product/s6.jpg";
-import product7 from "../Assets/images/shop/product/s7.jpg";
-import product8 from "../Assets/images/shop/product/s8.jpg";
-import product9 from "../Assets/images/shop/product/s9.jpg";
-import product10 from "../Assets/images/shop/product/s10.jpg";
-import product11 from "../Assets/images/shop/product/s11.jpg";
-import product12 from "../Assets/images/shop/product/s12.jpg";
-import product13 from "../Assets/images/shop/product/s13.jpg";
-import product14 from "../Assets/images/shop/product/s14.jpg";
-import product15 from "../Assets/images/shop/product/s15.jpg";
+import product1 from "../../Assets/images/shop/product/s1.jpg";
+import product2 from "../../Assets/images/shop/product/s2.jpg";
+import product3 from "../../Assets/images/shop/product/s3.jpg";
+import product4 from "../../Assets/images/shop/product/s4.jpg";
+import product5 from "../../Assets/images/shop/product/s5.jpg";
+import product6 from "../../Assets/images/shop/product/s6.jpg";
+import product7 from "../../Assets/images/shop/product/s7.jpg";
+import product8 from "../../Assets/images/shop/product/s8.jpg";
+import product9 from "../../Assets/images/shop/product/s9.jpg";
+import product10 from "../../Assets/images/shop/product/s10.jpg";
+import product11 from "../../Assets/images/shop/product/s11.jpg";
+import product12 from "../../Assets/images/shop/product/s12.jpg";
+import product13 from "../../Assets/images/shop/product/s13.jpg";
+import product14 from "../../Assets/images/shop/product/s14.jpg";
+import product15 from "../../Assets/images/shop/product/s15.jpg";
 
-import prodtctOverlay1 from "../Assets/images/shop/product/s-1.jpg";
-import prodtctOverlay2 from "../Assets/images/shop/product/s-2.jpg";
-import prodtctOverlay3 from "../Assets/images/shop/product/-3.jpg";
-import prodtctOverlay4 from "../Assets/images/shop/product/s-4.jpg";
-import prodtctOverlay5 from "../Assets/images/shop/product/s-5.jpg";
-import prodtctOverlay6 from "../Assets/images/shop/product/s-6.jpg";
-import prodtctOverlay7 from "../Assets/images/shop/product/s-7.jpg";
-import prodtctOverlay8 from "../Assets/images/shop/product/s-8.jpg";
-import prodtctOverlay9 from "../Assets/images/shop/product/s-9.jpg";
-import prodtctOverlay10 from "../Assets/images/shop/product/s-10.jpg";
-import prodtctOverlay11 from "../Assets/images/shop/product/s-11.jpg";
-import prodtctOverlay12 from "../Assets/images/shop/product/s-12.jpg";
-import prodtctOverlay13 from "../Assets/images/shop/product/s-13.jpg";
-import prodtctOverlay14 from "../Assets/images/shop/product/s-14.jpg";
-import prodtctOverlay15 from "../Assets/images/shop/product/s-15.jpg";
+import prodtctOverlay1 from "../../Assets/images/shop/product/s-1.jpg";
+import prodtctOverlay2 from "../../Assets/images/shop/product/s-2.jpg";
+import prodtctOverlay3 from "../../Assets/images/shop/product/-3.jpg";
+import prodtctOverlay4 from "../../Assets/images/shop/product/s-4.jpg";
+import prodtctOverlay5 from "../../Assets/images/shop/product/s-5.jpg";
+import prodtctOverlay6 from "../../Assets/images/shop/product/s-6.jpg";
+import prodtctOverlay7 from "../../Assets/images/shop/product/s-7.jpg";
+import prodtctOverlay8 from "../../Assets/images/shop/product/s-8.jpg";
+import prodtctOverlay9 from "../../Assets/images/shop/product/s-9.jpg";
+import prodtctOverlay10 from "../../Assets/images/shop/product/s-10.jpg";
+import prodtctOverlay11 from "../../Assets/images/shop/product/s-11.jpg";
+import prodtctOverlay12 from "../../Assets/images/shop/product/s-12.jpg";
+import prodtctOverlay13 from "../../Assets/images/shop/product/s-13.jpg";
+import prodtctOverlay14 from "../../Assets/images/shop/product/s-14.jpg";
+import prodtctOverlay15 from "../../Assets/images/shop/product/s-15.jpg";
 
 function ShopProducts() {
   const [pathItems, setPathItems] = useState([

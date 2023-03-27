@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 import FeatherIcon from 'feather-icons-react';
 
 //Import Images
-import product13 from "../Assets/images/shop/product/s13.jpg";
-import product14 from "../Assets/images/shop/product/s14.jpg";
-import product15 from "../Assets/images/shop/product/s15.jpg";
-import product16 from "../Assets/images/shop/product/s16.jpg";
+import product13 from "../../../Assets/images/shop/product/s13.jpg";
+import product14 from "../../../Assets/images/shop/product/s14.jpg";
+import product15 from "../../../Assets/images/shop/product/s15.jpg";
+import product16 from "../../../Assets/images/shop/product/s16.jpg";
 
-import prodtctOverlay13 from "../Assets/images/shop/product/s-13.jpg";
-import prodtctOverlay14 from "../Assets/images/shop/product/s-14.jpg";
-import prodtctOverlay15 from "../Assets/images/shop/product/s-15.jpg";
-import prodtctOverlay16 from "../Assets/images/shop/product/s-16.jpg";
+import prodtctOverlay13 from "../../../Assets/images/shop/product/s-13.jpg";
+import prodtctOverlay14 from "../../../Assets/images/shop/product/s-14.jpg";
+import prodtctOverlay15 from "../../../Assets/images/shop/product/s-15.jpg";
+import prodtctOverlay16 from "../../../Assets/images/shop/product/s-16.jpg";
 
 const RecentProducts = () => {
   const products = [

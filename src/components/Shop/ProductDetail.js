@@ -16,31 +16,31 @@ import "slick-carousel/slick/slick-theme.css";
 import PageBreadcrumb from "../pageBreadcrumb";
 
 //Import Images
-import product1 from "../Assets/images/shop/product/s1.jpg";
-import product2 from "../Assets/images/shop/product/s2.jpg";
-import product3 from "../Assets/images/shop/product/s3.jpg";
-import product4 from "../Assets/images/shop/product/s4.jpg";
-import product5 from "../Assets/images/shop/product/s5.jpg";
-import product6 from "../Assets/images/shop/product/s6.jpg";
-import product7 from "../Assets/images/shop/product/s7.jpg";
-import product8 from "../Assets/images/shop/product/s8.jpg";
+import product1 from "../../Assets/images/shop/product/s1.jpg";
+import product2 from "../../Assets/images/shop/product/s2.jpg";
+import product3 from "../../Assets/images/shop/product/s3.jpg";
+import product4 from "../../Assets/images/shop/product/s4.jpg";
+import product5 from "../../Assets/images/shop/product/s5.jpg";
+import product6 from "../../Assets/images/shop/product/s6.jpg";
+import product7 from "../../Assets/images/shop/product/s7.jpg";
+import product8 from "../../Assets/images/shop/product/s8.jpg";
 
-import prodtctOverlay1 from "../Assets/images/shop/product/s-1.jpg";
-import prodtctOverlay2 from "../Assets/images/shop/product/s-2.jpg";
-import prodtctOverlay3 from "../Assets/images/shop/product/s-3.jpg";
-import prodtctOverlay4 from "../Assets/images/shop/product/s-4.jpg";
-import prodtctOverlay5 from "../Assets/images/shop/product/s-5.jpg";
-import prodtctOverlay6 from "../Assets/images/shop/product/s-6.jpg";
-import prodtctOverlay7 from "../Assets/images/shop/product/s-7.jpg";
-import prodtctOverlay8 from "../Assets/images/shop/product/s-8.jpg";
+import prodtctOverlay1 from "../../Assets/images/shop/product/s-1.jpg";
+import prodtctOverlay2 from "../../Assets/images/shop/product/s-2.jpg";
+import prodtctOverlay3 from "../../Assets/images/shop/product/s-3.jpg";
+import prodtctOverlay4 from "../../Assets/images/shop/product/s-4.jpg";
+import prodtctOverlay5 from "../../Assets/images/shop/product/s-5.jpg";
+import prodtctOverlay6 from "../../Assets/images/shop/product/s-6.jpg";
+import prodtctOverlay7 from "../../Assets/images/shop/product/s-7.jpg";
+import prodtctOverlay8 from "../../Assets/images/shop/product/s-8.jpg";
 
 // import slider images
-import single01 from '../Assets/images/shop/product/single-1.jpg';
-import single02 from '../Assets/images/shop/product/single-2.jpg';
-import single03 from '../Assets/images/shop/product/single-3.jpg';
-import single04 from '../Assets/images/shop/product/single-4.jpg';
-import single05 from '../Assets/images/shop/product/single-5.jpg';
-import single06 from '../Assets/images/shop/product/single-6.jpg';
+import single01 from '../../Assets/images/shop/product/single-1.jpg';
+import single02 from '../../Assets/images/shop/product/single-2.jpg';
+import single03 from '../../Assets/images/shop/product/single-3.jpg';
+import single04 from '../../Assets/images/shop/product/single-4.jpg';
+import single05 from '../../Assets/images/shop/product/single-5.jpg';
+import single06 from '../../Assets/images/shop/product/single-6.jpg';
 
 
 function ShopProductDetail() {

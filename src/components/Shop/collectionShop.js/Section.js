@@ -10,9 +10,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 //Import Images
-import bg1 from "../Assets/images/shop/bg1.jpg";
-import bg2 from "../Assets/images/shop/bg2.jpg";
-import bg3 from "../Assets/images/shop/bg3.jpg";
+import bg1 from "../../../Assets/images/shop/bg1.jpg";
+import bg2 from "../../../Assets/images/shop/bg2.jpg";
+import bg3 from "../../../Assets/images/shop/bg3.jpg";
 
 const Section = () => {
     useEffect(() => {

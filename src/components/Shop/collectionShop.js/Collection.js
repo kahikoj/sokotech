@@ -3,9 +3,9 @@ import { Container, Row, Col } from 'reactstrap';
 import { Link } from "react-router-dom";
 
 //Import Images
-import fea1 from "../Assets/images/shop/fea1.jpg";
-import fea2 from "../Assets/images/shop/fea2.jpg";
-import fea3 from "../Assets/images/shop/fea3.jpg";
+import fea1 from "../../../Assets/images/shop/fea1.jpg";
+import fea2 from "../../../Assets/images/shop/fea2.jpg";
+import fea3 from "../../../Assets/images/shop/fea3.jpg";
 
 const Collection = () => {
   return (

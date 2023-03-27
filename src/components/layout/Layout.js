@@ -18,6 +18,7 @@ const CustomDot = () => {
   );
 };
 
+
 function Loader() {
   return (
     <div id="preloader">
@@ -44,7 +45,7 @@ function Layout({ children }) {
         <ScrollUpButton ContainerClassName="classForContainer" style={{ height: 36, width: 36 }} TransitionClassName="classForTransition">
           <CustomDot />
         </ScrollUpButton>
-      </Suspense> 
+      </Suspense>
     </>
   );
 }

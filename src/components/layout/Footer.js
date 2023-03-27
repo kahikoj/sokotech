@@ -6,14 +6,14 @@ import { Container, Row, Col, Form, Input, Label } from 'reactstrap';
 import FeatherIcon from 'feather-icons-react';
 
 // Import Images
-import americanEx from '../Assets/images/payments/american-ex.png';
-import discover from '../Assets/images/payments/discover.png';
-import masterCard from '../Assets/images/payments/master-card.png';
-import paypal from '../Assets/images/payments/paypal.png';
-import visa from '../Assets/images/payments/visa.png';
+import americanEx from '../../Assets/images/payments/american-ex.png';
+import discover from '../../Assets/images/payments/discover.png';
+import masterCard from '../../Assets/images/payments/master-card.png';
+import paypal from '../../Assets/images/payments/paypal.png';
+import visa from '../../Assets/images/payments/visa.png';
 
-import logolight from "../Assets/images/logo-light.png";
-import logodark from "../Assets/images/logo-dark.png";
+import logolight from "../../Assets/images/logo-light.png";
+import logodark from "../../Assets/images/logo-dark.png";
 
 const Footer = ({ isLight }) => {
   const grid1 = [
