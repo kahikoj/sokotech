@@ -187,23 +187,56 @@
 
 /*Contacts*/
 .contacts {
+  margin-top: 80px; /* adjust this value to fit the height of your Navbar */
+  background-color: #f2f2f2;
   padding: 50px;
-  text-align: center;
 }
 
-.contact-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.contact-label {
+.contacts h1 {
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-right: 10px;
+  margin-bottom: 20px;
 }
 
-.contact-value {
+.contacts p {
   font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.contacts form {
+  margin-top: 20px;
+}
+
+.contacts label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.contacts input[type="text"],
+.contacts input[type="email"],
+.contacts textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.contacts input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contacts input[type="submit"]:hover {
+  background-color: #0069d9;
 }
 
 .contact-icon {
@@ -216,27 +249,127 @@
 .about {
   padding: 50px;
   text-align: center;
+  text-align: center;
+  background-color: #fff;
 }
 
-.about h1 {
+.about h1, h2 {
   margin-bottom: 30px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.h1 {
+  font-size: 36px;
+}
+
+.h2 {
+  font-size: 24px;
 }
 
 .about p {
   font-size: 1.2rem;
   text-align: left;
   margin-bottom: 30px;
+  font-family: Georgia, serif;
+  line-height: 1.5;
+  color: #555;
+}
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+/* Style the list items */
+.li {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Add a border and padding to the history section */
+.history {
+  border: 1px solid #ccc;
+  padding: 20px;
 }
 
 /*Footer*/
-.footer {
-  background-color: #3f51b5;
-  color: white;
-  padding: 10px;
-  text-align: center;
+/* Social icons */
+.social-icon li {
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 0px;
 }
 
-.footer a {
-  color: white;
-  text-decoration: none;
+.social-icon a i {
+  color: #333;
 }
+
+/* Payment icons */
+.avatar-ex-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 2px;
+  border: 1px solid #ccc;
+  padding: 3px;
+}
+
+/* Footer section */
+.footer {
+  background: #3960dd;
+  padding: 50px 0;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  color: #777;
+}
+
+.footer-bar {
+  position: relative;
+  margin-top: 100px;
+}
+
+/* Logo and credits */
+.text-sm-centre {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: 10px;
+  color: #333;
+}
+
+.text-sm-centre p {
+  margin-bottom: 0;
+}
+
+/* Media queries */
+@media (max-width: 576px) {
+  .footer .text-sm-right {
+    text-align: center !important;
+    margin-bottom: 0px;
+  }
+  
+  .footer .text-sm-centre {
+    text-align: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  
+  .social-icon {
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  
+  .social-icon li {
+    display: block;
+    margin-bottom: 1
+0px;
+  }
+}
+

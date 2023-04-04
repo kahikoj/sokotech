@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col, Input, Card, CardBody } from 'reactstrap';
+import {scrollNavigation} from 'react-scrollspy-nav'
 import { Link } from "react-router-dom";
 
 //Import Slick Slider
@@ -13,7 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 //Import components
-import PageBreadcrumb from "../pageBreadcrumb";
+import PageBreadcrumb from "../Shared/pageBreadcrumb";
 
 //Import Images
 import product1 from "../../Assets/images/shop/product/s1.jpg";
@@ -45,9 +46,9 @@ import single06 from '../../Assets/images/shop/product/single-6.jpg';
 
 function ShopProductDetail() {
   const [pathItems, setPathItems] = useState([
-      { id : 1, name : "Landrick", link : "/index" },
+      { id : 1, name : "Homepage", link : "/Homepage" },
       { id : 2, name : "Shop", link : "#" },
-      { id : 3, name : "Product Details" },
+    //   { id : 3, name : "Product Details" },
   ]);
   const [products, setProducts] = useState([
       { id : 1, image : product1, imgOverlay : prodtctOverlay1, name : "Branded T-Shirt", price : "16.00", oldPrice : "21.00" },
@@ -65,7 +66,8 @@ function ShopProductDetail() {
       { image : product6, name : "Coffee Cup", oldPrice : "$22.00", NewPrice : "$18.00 " },
       { image : product8, name : "Wooden Stools", oldPrice : "$22.00", NewPrice : "$18.00 " },
   ]);
-  const [responsive, setResponsive] = useState({
+
+  let [responsive, setResponsive] = useState({
       0:{
           items:1
       },
@@ -76,43 +78,46 @@ function ShopProductDetail() {
           items:4
       }
   });
+
+
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
   const [items, setItems] = useState(1);
 
+  const addItem = () => {
+    setItems(items + 1);
+};
+
+const removeItem = () => {
+    if (items > 1) {
+        setItems(items - 1);
+    }
+};
+
+  let slider1 = useRef(null);
+  let slider2 = useRef(null);
+
   useEffect(() => {
-      window.addEventListener("scroll", scrollNavigation, true);
-      setNav1(slider1);
-      setNav2(slider2);
-      
-      return () => {
-          window.removeEventListener("scroll", scrollNavigation, true);
-      }
-  }, []);
+    setNav1(slider1.current);
+    setNav2(slider2.current);
 
+    window.addEventListener("scroll", scrollNavigation, true);
 
-  const MyComponent = () => {
-    useEffect(() => {
-      const scrollNavigation = () => {
-        let doc = document.documentElement;
-        let top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-        if (top > 80) {
-          document.getElementById('topnav').classList.add('nav-sticky');
-        }
-        else {
-          document.getElementById('topnav').classList.remove('nav-sticky');
-        }
-      };
-  
-      window.addEventListener('scroll', scrollNavigation);
+    return () => {
+        window.removeEventListener("scroll", scrollNavigation, true);
+    };
+}, []);
 
-      setNav1(slider1);
-      setNav2(slider2);
-  
-      return () => {
-        window.removeEventListener('scroll', scrollNavigation);
-      };
-    }, []);
+const scrollNavigation = () => {
+    var doc = document.documentElement;
+    var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+    if (top > 80) {
+        document.getElementById('topnav').classList.add('nav-sticky');
+    }
+    else {
+        document.getElementById('topnav').classList.remove('nav-sticky');
+    }
+};
   
     const settings = {
       autoplay:true,
@@ -122,7 +127,9 @@ function ShopProductDetail() {
       slidesToScroll: 1,
       fade : true,
       draggable : true,
-      pauseOnHover: true
+      pauseOnHover: true,
+      asNavFor: nav2,
+      ref: slider => setNav1(slider),
     };
   
     const settings2 = {
@@ -132,6 +139,9 @@ function ShopProductDetail() {
       autoplay:true,
       slidesToShow: 4,
       slidesToScroll: 4,
+      asNavFor: nav1,
+      ref: slider => setNav2(slider),
+      
     };
   
    
@@ -140,12 +150,14 @@ function ShopProductDetail() {
     return (
         <>
                 {/* breadcrumb */}
-                <PageBreadcrumb title="Branded T-Shirts" pathItems = {this.state.pathItems} />
-                 <div className="position-relative">
-                    <div className="shape overflow-hidden text-white">
+                <div>
+                    <PageBreadcrumb title="Branded T-Shirts" pathItems={pathItems} />
+                    <div className="position-relative">
+                        <div className="shape overflow-hidden text-white">
                         <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
                         </svg>
+                        </div>
                     </div>
                 </div>
 
@@ -154,7 +166,8 @@ function ShopProductDetail() {
                 <Row className="align-items-center">
                     <Col md={5}>
                         {/* main slider */}
-                        <Slider{...settings} asNavFor={nav2} ref={slider => setNav1(slider) } >
+
+                        <Slider {...settings} asNavFor={slider2} ref={slider => slider1 = slider} >
                                     <div><img src={single01}  className="img-fluid rounded" alt="alt" /></div>
                                     <div><img src={single02}  className="img-fluid rounded" alt="alt" /></div>
                                     <div><img src={single03}  className="img-fluid rounded" alt="alt" /></div>
@@ -165,7 +178,7 @@ function ShopProductDetail() {
                                 </Slider>
 
                                 {/* Slider thumbnails */}
-                            <Slider asNavFor={nav1} ref={slider => setNav2(slider)} slidesToShow={3} swipeToSlide={true} focusOnSelect={true} >
+                            <Slider asNavFor={slider1} ref={slider => slider2 = slider} slidesToShow={3} swipeToSlide={true} focusOnSelect={true} >
                                 <div><img src={single01} className="img-fluid" alt=""/></div>
                                 <div><img src={single02}  className="img-fluid" alt=""/></div>
                                 <div><img src={single03}  className="img-fluid" alt=""/></div>
@@ -214,9 +227,9 @@ function ShopProductDetail() {
                                     <div className="d-flex shop-list align-items-center">
                                         <h6 className="mb-0">Quantity:</h6>
                                         <div className="ml-3">
-                                            <Input type="button" value="-" onClick={this.removeItem} className="minus btn btn-icon btn-soft-primary font-weight-bold" readOnly/>
-                                            <Input type="text" step="1" min="1" name="quantity" value={this.state.items} title="Qty" readOnly className="btn btn-icon btn-soft-primary font-weight-bold ml-1 mr-1"/>
-                                            <Input type="button" value="+" onClick={this.addItem} className="plus btn btn-icon btn-soft-primary font-weight-bold" readOnly/>
+                                            <Input type="button" value="-" onClick={removeItem} className="minus btn btn-icon btn-soft-primary font-weight-bold" readOnly/>
+                                            <Input type="text" step="1" min="1" name="quantity" value={items} title="Qty" readOnly className="btn btn-icon btn-soft-primary font-weight-bold ml-1 mr-1"/>
+                                            <Input type="button" value="+" onClick={addItem} className="plus btn btn-icon btn-soft-primary font-weight-bold" readOnly/>
                                         </div>
                                     </div>
                                 </Col>
@@ -287,7 +300,6 @@ function ShopProductDetail() {
         </section>
     </>
   );
-  }
 }
 
 export default ShopProductDetail;

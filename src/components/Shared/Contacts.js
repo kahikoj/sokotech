@@ -1,12 +1,22 @@
 import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 const Contacts = () => {
+
+  
   return (
-    <div>
+    <section className="contacts" id="contacts">
+    <Container className="text-left">
+       <Row className= "align-items-center">
+       <Col lg={3} md={4} xs={12}>
       <h1>Contacts</h1>
-      <p>Phone: 555-555-5555</p>
-      <p>Email: info@mywebsite.com</p>
-      <p>Address: 123 Main St, Anytown USA</p>
+
+      <p>Phone: +254 0707 119 162</p>
+
+      <p>Email: jmkjoshua@gmail.com</p>
+
+      <p>Address:  Nairobi, Kenya</p>
+      
       <form>
         <label>
           Name:
@@ -22,7 +32,10 @@ const Contacts = () => {
         </label>
         <input type="submit" value="Send" />
       </form>
-    </div>
+      </Col>
+      </Row>
+    </Container>
+    </section>
   );
 };
 

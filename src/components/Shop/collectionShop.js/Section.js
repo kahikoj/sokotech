@@ -16,21 +16,24 @@ import bg3 from "../../../Assets/images/shop/bg3.jpg";
 
 const Section = () => {
     useEffect(() => {
-        var e1 = document.getElementsByClassName("slick-slide");
-        for (var i = 0; i < 3; i++) {
-            if (i === 0)
-                e1[i].style.background = `url(${bg2}) center center`;
-            if (i === 1)
-                e1[i].style.background = `url(${bg3}) center center`;
-            if (i === 2)
-                e1[i].style.background = `url(${bg1}) center center`;
-        }
-        return () => {
-            for (var i = 0; i < 3; i++) {
-                e1[i].style.background = "";
+        let e1 = document.querySelectorAll(".slick-slide");
+        if (e1.length > 0) {
+            for (let i = 0; i < 3; i++) {
+                if (i === 0)
+                    e1[i].style.background = `url(${bg2}) center center`;
+                if (i === 1)
+                    e1[i].style.background = `url(${bg3}) center center`;
+                if (i === 2)
+                    e1[i].style.background = `url(${bg1}) center center`;
             }
-        };
+            return () => {
+                for (let i = 0; i < 3; i++) {
+                    e1[i].style.background = "";
+                }
+            };
+        }
     }, []);
+    
 
     const items = [
         {

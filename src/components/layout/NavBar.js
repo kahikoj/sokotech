@@ -1,25 +1,36 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useMemo } from 'react';
+import { Link, useLocation } from "react-router-dom";
 import { Container } from "reactstrap";
 import ScrollspyNav from "../Shared/Scrollspy";
 import logodark from "../../Assets/images/logo-dark.png";
 
+// Import Css
+import '../../apps.scss';
+import "../../App.css";
+
 const NavbarPage = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleLine = () => {
-        setIsOpen(prevState => !prevState.isOpen);
-    }
-
-    const navItems = [
-        { id: 1, idnm: "home", navheading: "Home" },
-        { id: 3, idnm: "products", navheading: "Products" },
-        { id: 3, idnm: "service", navheading: "Service" },
-        { id: 4, idnm: "contact", navheading: "Contact" },
-        { id: 6, idnm: "about", navheading: "About" },
-    ];
+    const navItems = useMemo(() => [
+        { id: 1, idnm: "home", navheading: "Home", link: '/homepage' },
+        { id: 2, idnm: "products", navheading: "Products", link: "/product" },
+        { id: 3, idnm: "service", navheading: "Service", link: "/services" },
+        { id: 4, idnm: "contact", navheading: "Contact", link: "/contact" },
+        { id: 5, idnm: "about", navheading: "About", link: "/about" },
+    ], []);
 
     const targetId = navItems.map((item) => item.idnm);
+
+    const location = useLocation();
+    const [activeNavItem, setActiveNavItem] = useState(navItems.find(item => location.pathname.startsWith(`/${item.idnm}`)) || navItems[0]);
+
+    useEffect(() => {
+      setActiveNavItem(navItems.find(item => location.pathname.startsWith(`/${item.idnm}`)) || navItems[0]);
+    }, [location.pathname, navItems]);
+    
+    const handleNavItemClick = (item) => {
+        setActiveNavItem(item);
+        window.location.href = item.link;
+      };
+    
 
     return (
         <>
@@ -30,28 +41,24 @@ const NavbarPage = () => {
                             <img src={logodark} height="24" alt="" />
                         </Link>
                     </div>
-                    <div className="menu-extras">
-                        <div className="menu-item">
-                            <Link to="#" onClick={toggleLine} className={isOpen ? "navbar-toggle open" : "navbar-toggle"}>
-                                <div className="lines">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
                     <ScrollspyNav
                         scrollTargetIds={targetId}
                         scrollDuration="800"
                         headerBackground="false"
                         activeNavClass="active"
                     >
-                        <div id="navigation" style={{ display: isOpen ? "block" : "none" }}>
+                        <div id="navigation" >
                             <ul className="navigation-menu">
-                                {navItems.map((item, key) => (
-                                    <li key={key} className={item.navheading === "Home" ? "has-submenu active" : "has-submenu"}>
-                                        <a href={"#" + item.idnm}> {item.navheading}</a>
+                                {navItems.map((item) => (
+                                    <li key={item.id} className={activeNavItem.idnm === item.idnm ? "has-submenu active" : "has-submenu"}>
+                                        <Link
+                                            to={item.link}
+                                            title={item.navheading}
+                                            onClick={() => handleNavItemClick(item)}
+                                            
+                                        >
+                                            {item.navheading}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>

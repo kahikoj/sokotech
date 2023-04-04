@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import { Container, Row, Col, Form, FormGroup, Input, Pagination, PaginationItem, PaginationLink, Card, CardBody } from 'reactstrap';
+import React, { useEffect } from 'react';
+import { Container, Row, Col, Form, Input, Pagination, PaginationItem, PaginationLink, Card, CardBody } from 'reactstrap';
 import { Link } from "react-router-dom";
 
 //Import Icons
 import FeatherIcon from 'feather-icons-react';
 
-//Import components
-import PageBreadcrumb from "../pageBreadcrumb";
 
 //Import Images
 import product1 from "../../Assets/images/shop/product/s1.jpg";
@@ -27,7 +25,7 @@ import product15 from "../../Assets/images/shop/product/s15.jpg";
 
 import prodtctOverlay1 from "../../Assets/images/shop/product/s-1.jpg";
 import prodtctOverlay2 from "../../Assets/images/shop/product/s-2.jpg";
-import prodtctOverlay3 from "../../Assets/images/shop/product/-3.jpg";
+import prodtctOverlay3 from "../../Assets/images/shop/product/s-3.jpg";
 import prodtctOverlay4 from "../../Assets/images/shop/product/s-4.jpg";
 import prodtctOverlay5 from "../../Assets/images/shop/product/s-5.jpg";
 import prodtctOverlay6 from "../../Assets/images/shop/product/s-6.jpg";
@@ -41,68 +39,53 @@ import prodtctOverlay13 from "../../Assets/images/shop/product/s-13.jpg";
 import prodtctOverlay14 from "../../Assets/images/shop/product/s-14.jpg";
 import prodtctOverlay15 from "../../Assets/images/shop/product/s-15.jpg";
 
-function ShopProducts() {
-  const [pathItems, setPathItems] = useState([
-    { id: 1, name: "Landrick", link: "/index" },
-    { id: 2, name: "Shop", link: "#" },
-    { id: 3, name: "Products" },
-  ]);
+const ProductList = () => {
+    const products = [
+      { id: 1, image: product1, imgOverlay: prodtctOverlay1, name: "Branded T-Shirt", price: "16.00", oldPrice: "21.00" },
+      { id: 2, image: product2, imgOverlay: prodtctOverlay2, name: "Shopping Bag", price: "21.00", oldPrice: "25.00" },
+      { id: 3, image: product3, imgOverlay: prodtctOverlay3, name: "Elegent Watch", price: "5.00", desc: "30% off" },
+      { id: 4, image: product4, imgOverlay: prodtctOverlay4, name: "Casual Shoes", price: "18.00", oldPrice: "22.00" },
+      { id: 5, image: product5, imgOverlay: prodtctOverlay5, name: "Earphones", price: "3.00" },
+      { id: 6, image: product6, imgOverlay: prodtctOverlay6, name: "Elegent Mug", price: "4.50", oldPrice: "6.50" },
+      { id: 7, image: product7, imgOverlay: prodtctOverlay7, name: "Sony Headphones", price: "9.99", desc: "20% off" },
+      { id: 8, image: product8, imgOverlay: prodtctOverlay8, name: "Wooden Stools", price: "22.00", oldPrice: "25.00" },
+      { id: 9, image: product9, imgOverlay: prodtctOverlay9, name: "Coffee Cup / Mug", price: "16.00", oldPrice: "21.00" },
+      { id: 10, image: product10, imgOverlay: prodtctOverlay10, name: "Sunglasses", price: "5.00", oldPrice: "25.00" },
+      { id: 11, image: product11, imgOverlay: prodtctOverlay11, name: "Loafer Shoes", price: "22.00", desc: "30% off" },
+      { id: 12, image: product12, imgOverlay: prodtctOverlay12, name: "T-Shirts", price: "22.00", oldPrice: "25.00" },
+      { id: 13, image: product13, imgOverlay: prodtctOverlay13, name: "Wooden Chair", price: "16.00", oldPrice: "21.00" },
+      { id: 14, image: product14, imgOverlay: prodtctOverlay14, name: "Women Block Heels", price: "21.00", oldPrice: "25.00" },
+      { id: 15, image: product15, imgOverlay: prodtctOverlay15, name: "T-Shirts", price: "22.00", desc: "30% off" },
+    ];
+  
+    const topProducts = [
+      { image : product1, name : "T-Shirt", oldPrice : "$22.00", NewPrice : "$18.00 " },
+      { image : product3, name : "Watch", oldPrice : "$22.00", NewPrice : "$18.00 " },
+      { image : product6, name : "Coffee Cup", oldPrice : "$22.00", NewPrice : "$18.00 " },
+      { image : product8, name : "Wooden Stools", oldPrice : "$22.00", NewPrice : "$18.00 " },
+    ];
 
-  const [products, setProducts] = useState([
-    { id: 1, image: product1, imgOverlay: prodtctOverlay1, name: "Branded T-Shirt", price: "16.00", oldPrice: "21.00" },
-    { id: 2, image: product2, imgOverlay: prodtctOverlay2, name: "Shopping Bag", price: "21.00", oldPrice: "25.00" },
-    { id: 3, image: product3, imgOverlay: prodtctOverlay3, name: "Elegent Watch", price: "5.00", desc: "30% off" },
-    { id: 4, image: product4, imgOverlay: prodtctOverlay4, name: "Casual Shoes", price: "18.00", oldPrice: "22.00" },
-    { id: 5, image: product5, imgOverlay: prodtctOverlay5, name: "Earphones", price: "3.00" },
-    { id: 6, image: product6, imgOverlay: prodtctOverlay6, name: "Elegent Mug", price: "4.50", oldPrice: "6.50" },
-    { id: 7, image: product7, imgOverlay: prodtctOverlay7, name: "Sony Headphones", price: "9.99", desc: "20% off" },
-    { id: 8, image: product8, imgOverlay: prodtctOverlay8, name: "Wooden Stools", price: "22.00", oldPrice: "25.00" },
-    { id: 9, image: product9, imgOverlay: prodtctOverlay9, name: "Coffee Cup / Mug", price: "16.00", oldPrice: "21.00" },
-    { id: 10, image: product10, imgOverlay: prodtctOverlay10, name: "Sunglasses", price: "5.00", oldPrice: "25.00" },
-    { id: 11, image: product11, imgOverlay: prodtctOverlay11, name: "Loafer Shoes", price: "22.00", desc: "30% off" },
-    { id: 12, image: product12, imgOverlay: prodtctOverlay12, name: "T-Shirts", price: "22.00", oldPrice: "25.00" },
-    { id: 13, image: product13, imgOverlay: prodtctOverlay13, name: "Wooden Chair", price: "16.00", oldPrice: "21.00" },
-    { id: 14, image: product14, imgOverlay: prodtctOverlay14, name: "Women Block Heels", price: "21.00", oldPrice: "25.00" },
-    { id: 15, image: product15, imgOverlay: prodtctOverlay15, name: "T-Shirts", price: "22.00", desc: "30% off" },
-  ]);
-  
-  const [topProducts, setTopProducts] = useState([
-    { image : product1, name : "T-Shirt", oldPrice : "$22.00", NewPrice : "$18.00 " },
-    { image : product3, name : "Watch", oldPrice : "$22.00", NewPrice : "$18.00 " },
-    { image : product6, name : "Coffee Cup", oldPrice : "$22.00", NewPrice : "$18.00 " },
-    { image : product8, name : "Wooden Stools", oldPrice : "$22.00", NewPrice : "$18.00 " },
-  ]);
-
-  useEffect(() => {
-    const scrollNavigation = () => {
-      const doc = document.documentElement;
-      const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-      if (top > 80) {
-        document.getElementById('topnav').classList.add('nav-sticky');
-      } else {
-        document.getElementById('topnav').classList.remove('nav-sticky');
-      }
-    };
-  
-    window.addEventListener('scroll', scrollNavigation);
-  
-    return () => {
-      window.removeEventListener('scroll', scrollNavigation);
-    };
-  }, []);
+    useEffect(() => {
+      const scrollNavigation = () => {
+        const doc = document.documentElement;
+        const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        if (top > 80) {
+          document.getElementById('topnav').classList.add('nav-sticky');
+        } else {
+          document.getElementById('topnav').classList.remove('nav-sticky');
+        }
+      };
+    
+      window.addEventListener('scroll', scrollNavigation);
+    
+      return () => {
+        window.removeEventListener('scroll', scrollNavigation);
+      };
+    }, []);
   
 
     return (
       <>
-        {/* breadcrumb */}
-        <PageBreadcrumb title="All Products" pathItems={["Home", "Shop", "All Products"]} />
-        <div className="position-relative">
-          <div className="shape overflow-hidden text-white">
-            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-            </svg>
-          </div>
-        </div>
   
         <section className="section">
           <Container>
@@ -196,7 +179,7 @@ function ShopProducts() {
 
                         <Row>
                           {
-                            props.products.map((product) => (
+                            products.map((product) => (
                               <Col key={product.id} lg={4} md={6} xs={12} className="mt-4 pt-2">
                                 <Card className="shop-list border-0 position-relative overflow-hidden">
                                   <div className="shop-image position-relative overflow-hidden rounded shadow">
@@ -266,5 +249,5 @@ function ShopProducts() {
    );
 }
 
-export default ShopProducts; 
+export default ProductList; 
   

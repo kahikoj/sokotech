@@ -19,9 +19,9 @@ const HomePage = () => {
   }, []);
   
   const scrollNavigation = () => {
-    var doc = document.documentElement;
-    var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-    var topnav = document.getElementById('topnav');
+    let doc = document.documentElement;
+    let top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+    let topnav = document.getElementById('topnav');
     if(topnav) {
       if(top > 80) {
         topnav.classList.add('nav-sticky');
