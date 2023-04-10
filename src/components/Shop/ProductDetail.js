@@ -13,9 +13,6 @@ import FeatherIcon from 'feather-icons-react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-//Import components
-import PageBreadcrumb from "../Shared/pageBreadcrumb";
-
 //Import Images
 import product1 from "../../Assets/images/shop/product/s1.jpg";
 import product2 from "../../Assets/images/shop/product/s2.jpg";
@@ -45,11 +42,7 @@ import single06 from '../../Assets/images/shop/product/single-6.jpg';
 
 
 function ShopProductDetail() {
-  const [pathItems, setPathItems] = useState([
-      { id : 1, name : "Homepage", link : "/Homepage" },
-      { id : 2, name : "Shop", link : "#" },
-    //   { id : 3, name : "Product Details" },
-  ]);
+
   const [products, setProducts] = useState([
       { id : 1, image : product1, imgOverlay : prodtctOverlay1, name : "Branded T-Shirt", price : "16.00", oldPrice : "21.00" },
       { id : 2, image : product2, imgOverlay : prodtctOverlay2, name : "Shopping Bag", price : "21.00", oldPrice : "25.00" },
@@ -79,7 +72,6 @@ function ShopProductDetail() {
       }
   });
 
-
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
   const [items, setItems] = useState(1);
@@ -100,68 +92,58 @@ const removeItem = () => {
   useEffect(() => {
     setNav1(slider1.current);
     setNav2(slider2.current);
-
-    window.addEventListener("scroll", scrollNavigation, true);
-
-    return () => {
-        window.removeEventListener("scroll", scrollNavigation, true);
-    };
-}, []);
+    }, []);
 
 const scrollNavigation = () => {
     var doc = document.documentElement;
     var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
     if (top > 80) {
-        document.getElementById('topnav').classList.add('nav-sticky');
+      document.getElementById('topnav').classList.add('nav-sticky');
+    } else {
+      document.getElementById('topnav').classList.remove('nav-sticky');
     }
-    else {
-        document.getElementById('topnav').classList.remove('nav-sticky');
-    }
-};
-  
+  };
+
+  window.addEventListener('scroll', scrollNavigation, true);
+
+  return () => {
+    window.removeEventListener('scroll', scrollNavigation, true);
+    },[products, setProducts, topProducts, setTopProducts, responsive, setResponsive]
+
+
     const settings = {
-      autoplay:true,
-      infinite: true,
-      autoplaySpeed: 1500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      fade : true,
-      draggable : true,
-      pauseOnHover: true,
-      asNavFor: nav2,
-      ref: slider => setNav1(slider),
+        autoplay: true,
+        infinite: true,
+        autoplaySpeed: 1500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        draggable: true,
+        pauseOnHover: true,
+        asNavFor: nav2 ? nav2 : null,
+        ref: slider => setNav1(slider),
     };
+    
   
-    const settings2 = {
-      dots: false,
-      infinite: true,
-      autoplaySpeed: 1500,
-      autoplay:true,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      asNavFor: nav1,
-      ref: slider => setNav2(slider),
-      
-    };
+        const settings2 = {
+        dots: false,
+        infinite: true,
+        autoplaySpeed: 1500,
+        autoplay:true,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        asNavFor: nav1,
+        ref: slider => setNav2(slider),
+        
+        };
   
    
   
 
     return (
         <>
-                {/* breadcrumb */}
-                <div>
-                    <PageBreadcrumb title="Branded T-Shirts" pathItems={pathItems} />
-                    <div className="position-relative">
-                        <div className="shape overflow-hidden text-white">
-                        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-                        </svg>
-                        </div>
-                    </div>
-                </div>
 
-                <section className="section">
+        <section className="section">
             <Container>
                 <Row className="align-items-center">
                     <Col md={5}>

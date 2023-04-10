@@ -54,7 +54,7 @@ const Footer = () => {
             </Col>
             <Col sm="4" xs="4">
               <div className="text-sm-centre">
-                <p className="mb-0">© 2021-22. Developed by Master.</p>
+                <p className="mb-0">© 2022-23. Developed by Kahiko Master.</p>
               </div>
             </Col>
 
