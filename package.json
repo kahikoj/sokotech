@@ -35,7 +35,7 @@
     "sass": "^1.60.0",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.0",
-    "webpack": "^5.76.3"
+    "webpack": "^5.77.0"
   },
   "scripts": {
     "start": "react-scripts start",
